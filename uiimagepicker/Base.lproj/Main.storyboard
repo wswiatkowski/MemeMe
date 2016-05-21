@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="uiimagepicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CEF-mi-GYG">
+                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="aGZ-c1-bMK"/>
+                                    <constraint firstAttribute="height" constant="128" id="fPb-AD-M3j"/>
+                                    <constraint firstAttribute="width" secondItem="CEF-mi-GYG" secondAttribute="height" multiplier="15:8" id="xh0-L0-8jO"/>
+                                </constraints>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JRQ-8m-eWC">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="Bqw-CM-efs"/>
+                                    <constraint firstAttribute="height" constant="44" id="UjH-LT-YA8"/>
+                                    <constraint firstAttribute="width" constant="600" id="gXv-Pi-aBg"/>
+                                    <constraint firstAttribute="width" secondItem="JRQ-8m-eWC" secondAttribute="height" multiplier="150:11" id="o4j-f9-HUh"/>
+                                    <constraint firstAttribute="height" constant="44" id="ugM-gy-Ms8"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Pick from Album" id="6jM-mf-CfX">
+                                        <connections>
+                                            <action selector="pickAnImageFromAlbum:" destination="BYZ-38-t0r" id="o3L-4R-pDP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="camera" id="rZL-Jn-s04" customClass="cameraButton">
+                                        <connections>
+                                            <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="CYy-gs-quS"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="UjH-LT-YA8"/>
+                                        <exclude reference="gXv-Pi-aBg"/>
+                                        <exclude reference="o4j-f9-HUh"/>
+                                    </mask>
+                                </variation>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="JRQ-8m-eWC" secondAttribute="trailing" constant="20" id="0Le-3X-Aoc"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JRQ-8m-eWC" secondAttribute="bottom" id="7aI-tx-uvj"/>
+                            <constraint firstItem="JRQ-8m-eWC" firstAttribute="top" secondItem="CEF-mi-GYG" secondAttribute="bottom" constant="192" id="CbX-EA-efO"/>
+                            <constraint firstItem="JRQ-8m-eWC" firstAttribute="top" secondItem="CEF-mi-GYG" secondAttribute="bottom" constant="192" id="z20-Tb-fjn"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="0Le-3X-Aoc"/>
+                                <exclude reference="CbX-EA-efO"/>
+                                <exclude reference="z20-Tb-fjn"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="CEF-mi-GYG" id="YmQ-dc-1Sl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
