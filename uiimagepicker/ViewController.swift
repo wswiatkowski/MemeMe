@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var upperTextField: UITextField!
+    @IBOutlet weak var lowerTextField: UITextField!
     
     @IBAction func pickAnImageFromAlbum (sender: AnyObject) {
         let imagePicker = UIImagePickerController()
@@ -26,8 +29,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    override func viewDidLoad() {
+        upperTextField.text = "Top Text"
+        upperTextField.textAlignment = NSTextAlignment(rawValue: 1)!
+        lowerTextField.text = "Down Text"
+        lowerTextField.textAlignment = NSTextAlignment(rawValue: 1)!
+    }
+    
     override func viewWillAppear(animated: Bool) {
-        self.cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
     
@@ -41,6 +51,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
     
 
 }

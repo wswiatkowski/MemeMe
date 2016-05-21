@@ -56,12 +56,28 @@
                                     </mask>
                                 </variation>
                             </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-dx-8AT">
+                                <rect key="frame" x="252" y="40" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v5Y-au-JxO">
+                                <rect key="frame" x="252" y="500" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="JRQ-8m-eWC" secondAttribute="trailing" constant="20" id="0Le-3X-Aoc"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JRQ-8m-eWC" secondAttribute="bottom" id="7aI-tx-uvj"/>
+                            <constraint firstItem="Vcx-dx-8AT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="AV9-hk-UlP"/>
                             <constraint firstItem="JRQ-8m-eWC" firstAttribute="top" secondItem="CEF-mi-GYG" secondAttribute="bottom" constant="192" id="CbX-EA-efO"/>
+                            <constraint firstItem="v5Y-au-JxO" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="232" id="V8A-Qz-Gv2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v5Y-au-JxO" secondAttribute="trailing" constant="231" id="csP-SH-JLc"/>
+                            <constraint firstItem="JRQ-8m-eWC" firstAttribute="top" secondItem="v5Y-au-JxO" secondAttribute="bottom" constant="26" id="gpN-eB-hmf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vcx-dx-8AT" secondAttribute="trailing" constant="231" id="ium-FM-ecE"/>
+                            <constraint firstItem="Vcx-dx-8AT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="232" id="rrV-hm-B0W"/>
                             <constraint firstItem="JRQ-8m-eWC" firstAttribute="top" secondItem="CEF-mi-GYG" secondAttribute="bottom" constant="192" id="z20-Tb-fjn"/>
                         </constraints>
                         <variation key="default">
@@ -73,7 +89,10 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="rZL-Jn-s04" id="ui8-mE-B8y"/>
                         <outlet property="imageView" destination="CEF-mi-GYG" id="YmQ-dc-1Sl"/>
+                        <outlet property="lowerTextField" destination="v5Y-au-JxO" id="B8U-vC-D0f"/>
+                        <outlet property="upperTextField" destination="Vcx-dx-8AT" id="inW-Lg-oBS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
