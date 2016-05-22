@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate{
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -52,7 +52,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        upperTextField.text == "Top Text" ? upperTextField.text : nil
+        lowerTextField.text == "Down Text" ? lowerTextField.text : nil
+
+    }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+    }
     
 
 }
