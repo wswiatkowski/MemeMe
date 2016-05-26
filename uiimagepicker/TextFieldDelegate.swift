@@ -9,16 +9,54 @@
 import Foundation
 import UIKit
 
-class TextFieldDelegate : NSObject, UITextFieldDelegate {
+class textFieldBottom : NSObject, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        textField.text = ""
+        if textField.text! == "BOTTOM" {
+            textField.text! = ""
+        }else{
+            textField.text! = textField.text!
+        }
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        var newNum : NSString
+        
+        newNum = textField.text!
+        newNum = newNum.stringByReplacingCharactersInRange(range, withString: string)
+        return true
+        
+    }
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true;
+    }
+    
+}
+
+class textFieldTop : NSObject, UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField.text! == "TOP" {
+            textField.text! = ""
+        }else{
+            textField.text! = textField.text!
+        }
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        var newNum : NSString
+        newNum = textField.text!
+        newNum = newNum.stringByReplacingCharactersInRange(range, withString: string)
+        return true
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        
         return true;
     }
-    
 }

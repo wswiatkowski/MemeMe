@@ -61,6 +61,16 @@
                                     </mask>
                                 </variation>
                             </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xhg-OE-zXH">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="n4A-jg-Vk9">
+                                        <connections>
+                                            <action selector="shareAction:" destination="BYZ-38-t0r" id="42N-N9-Lob"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vcx-dx-8AT">
                                 <rect key="frame" x="252" y="40" width="97" height="30"/>
                                 <constraints>
@@ -93,6 +103,9 @@
                         <outlet property="cameraButton" destination="rZL-Jn-s04" id="ui8-mE-B8y"/>
                         <outlet property="imageView" destination="CEF-mi-GYG" id="YmQ-dc-1Sl"/>
                         <outlet property="lowerTextField" destination="v5Y-au-JxO" id="B8U-vC-D0f"/>
+                        <outlet property="lowerToolbar" destination="JRQ-8m-eWC" id="bzC-dA-Y1b"/>
+                        <outlet property="saveMeme" destination="n4A-jg-Vk9" id="gYR-pD-oKi"/>
+                        <outlet property="topToolbar" destination="xhg-OE-zXH" id="P5d-jE-tB3"/>
                         <outlet property="upperTextField" destination="Vcx-dx-8AT" id="inW-Lg-oBS"/>
                     </connections>
                 </viewController>
