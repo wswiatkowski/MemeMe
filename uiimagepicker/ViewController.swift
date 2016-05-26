@@ -8,12 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate{
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var upperTextField: UITextField!
     @IBOutlet weak var lowerTextField: UITextField!
+    
+    //Delegates
+    let textFieldDelegate = TextFieldDelegate()
+    
+    //Text Attrs
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName : 5.0
+    ]
     
     @IBAction func pickAnImageFromAlbum (sender: AnyObject) {
         let imagePicker = UIImagePickerController()
@@ -30,14 +41,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     override func viewDidLoad() {
+        upperTextField.delegate = textFieldDelegate
         upperTextField.text = "Top Text"
-        upperTextField.textAlignment = NSTextAlignment(rawValue: 1)!
+        upperTextField.textAlignment = NSTextAlignment(rawValue: 3)!
+        upperTextField.defaultTextAttributes = memeTextAttributes
+        
+        lowerTextField.delegate = textFieldDelegate
         lowerTextField.text = "Down Text"
-        lowerTextField.textAlignment = NSTextAlignment(rawValue: 1)!
+        lowerTextField.textAlignment = NSTextAlignment(rawValue: 3)!
+        lowerTextField.defaultTextAttributes = memeTextAttributes
     }
     
     override func viewWillAppear(animated: Bool) {
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        self.subscribeToKeyboardNotifications()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        self.unsubscribeFromKeyboardNotifications()
     }
     
     
@@ -52,16 +73,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        upperTextField.text == "Top Text" ? upperTextField.text : nil
-        lowerTextField.text == "Down Text" ? lowerTextField.text : nil
-
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat{
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as!NSValue
+        return keyboardSize.CGRectValue().height
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
+    func keyboardWillShow(notification: NSNotification){
+        self.view.frame.origin.y -= getKeyboardHeight(notification)
     }
     
+    func keyboardWillHide(notification: NSNotification){
+        self.view.frame.origin.y = 0
+    }
+    
+    func subscribeToKeyboardNotifications(){
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+    }
 
+    func unsubscribeFromKeyboardNotifications(){
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+
+    }
 }
 
