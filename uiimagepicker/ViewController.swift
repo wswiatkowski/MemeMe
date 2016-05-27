@@ -86,7 +86,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.presentViewController(activityViewController, animated: true, completion: nil)
         activityViewController.completionWithItemsHandler = {
             (activity, success, items, error) in
-            print("Activity: \(activity) Success: \(success) Items: \(items) Error: \(error)")
             func save () {
                 self.savedMeme = Meme (topText: self.upperTextField.text!, bottomText: self.lowerTextField.text!, originalImage: self.imageView.image!, memedImage: contextMemedImage)
             }
