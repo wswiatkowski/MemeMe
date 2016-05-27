@@ -104,7 +104,6 @@
                         <outlet property="imageView" destination="CEF-mi-GYG" id="YmQ-dc-1Sl"/>
                         <outlet property="lowerTextField" destination="v5Y-au-JxO" id="B8U-vC-D0f"/>
                         <outlet property="lowerToolbar" destination="JRQ-8m-eWC" id="bzC-dA-Y1b"/>
-                        <outlet property="saveMeme" destination="n4A-jg-Vk9" id="gYR-pD-oKi"/>
                         <outlet property="topToolbar" destination="xhg-OE-zXH" id="P5d-jE-tB3"/>
                         <outlet property="upperTextField" destination="Vcx-dx-8AT" id="inW-Lg-oBS"/>
                     </connections>
